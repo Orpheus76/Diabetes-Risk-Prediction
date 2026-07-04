@@ -32,7 +32,7 @@ _Résultats à compléter après l’entraînement des modèles._
 ## Installation et exécution
 
 ```bash
-git clone <url-de-ton-repo>
+git clone https://github.com/Orpheus76/Diabetes-Risk-Prediction.git
 cd diabetes-risk-prediction
 python3 -m venv venv
 source venv/bin/activate
