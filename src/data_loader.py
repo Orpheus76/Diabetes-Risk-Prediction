@@ -17,7 +17,18 @@ COLUMN_NAMES = [
     "Outcome",
 ]
 
-RAW_PATH = os.path.join("data", "raw", "diabetes.csv")
+# Chemin absolu vers CE fichier (data_loader.py), peu importe d'où le script est appelé.
+THIS_FILE = os.path.abspath(__file__)
+
+# Dossier qui contient ce fichier, ddonc le dossier src/
+SRC_DIR = os.path.dirname(THIS_FILE)
+
+# Dossier parent de src/, donc la racine du projet (diabetes-risk-prediction/)
+PROJECT_DIR = os.path.dirname(SRC_DIR)
+
+# Chemin absolu vers le CSV brut, ancré sur la racine du projet plutôt que sur le dossier d'exécution (cwd) - évite que le fichier soit créé au mauvais endroit si ce module est importé depuis un notebook (notebooks/) plutôt que depuis la racine.
+RAW_PATH = os.path.join(PROJECT_DIR, "data", "raw", "diabetes.csv")
+
 
 def download_raw_data(save_path=RAW_PATH):
     
