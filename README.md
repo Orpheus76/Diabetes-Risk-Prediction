@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 Projet d'apprentissage automatique (**Machine Learning**) orienté vers l'**interprétabilité clinique et pédagogique**.  
-L'objectif est de prédire le risque de diabète à partir de données médicales (Pima Indians Diabetes Dataset), de comparer un modèle linéaire (*Régression Logistique*) à un modèle non-linéaire (*Forêt Aléatoire*), et de décrypter les prédictions du modèle ensembliste à l'aide de **SHAP** (*SHapley Additive exPlanations*).
+L'objectif est de prédire le risque de diabète à partir de données médicales (Pima Indians Diabetes Dataset), de comparer un modèle linéaire (*Régression Logistique*) à un modèle non-linéaire (*Forêt Aléatoire*), et de décrypter les prédictions de la Forêt Aléatoire à l'aide de **SHAP** (*SHapley Additive exPlanations*).
 
 ---
 
@@ -25,6 +25,12 @@ Dans un projet d'apprentissage automatique appliqué à la santé, l'évaluation
 
 3. **Precision (Valeur Prédictive Positive)** : *« Lorsque le modèle prédit qu'un patient est à risque de diabète, quelle est la probabilité que ce diagnostic soit exact ? »*  
    - Elle évalue la fiabilité des alertes déclenchées par le modèle. Par exemple, une *Precision* de 70 % signifie que sur 100 patients identifiés comme étant à risque par l'algorithme, 70 le sont réellement (les 30 autres constituant des diagnostics faussement positifs).
+
+4. **F1-score (Compromis équilibré)** : *« Quel est l'équilibre global entre la capacité du modèle à détecter tous les malades (Recall) et la fiabilité de ses alertes (Precision) ? »*  
+   - Il s'agit de la moyenne harmonique entre le *Recall* et la *Precision* ($\text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$). Il constitue un indicateur de synthèse idéal lorsque les classes sont déséquilibrées et que l'on recherche un compromis clinique optimal entre la sensibilité du diagnostic et la maîtrise des faux positifs.
+
+5. **ROC-AUC (Capacité de discrimination)** : *« Quelle est la capacité de l'algorithme à hiérarchiser correctement le risque, en distinguant de manière fiable un patient malade d'un patient sain ? »*  
+   - L'aire sous la courbe ROC (*Receiver Operating Characteristic*) mesure la performance globale du modèle indépendamment de tout seuil de décision probabiliste fixé (*ex: 0.50*). Un score de 0.50 équivaut à un tirage au sort aléatoire, tandis qu'un score de 1.0 représente une discrimination parfaite. Un score $\ge 0.80$ reflète un excellent pouvoir discriminant en pratique médicale.
 
 ---
 
@@ -73,8 +79,9 @@ Les deux algorithmes ont été évalués sur l'échantillon de test (`X_test`, 1
 
 ### 🔍 Analyse clinique des résultats :
 - **Le saut de Recall (+11.1 %)** : Sur les 54 patientes diabétiques du jeu de test, la Régression Logistique en détecte 27 (*Recall = 50%*), tandis que la Forêt Aléatoire en détecte 33 (*Recall = 61.1%*).  
-  **Le modèle ensembliste permet donc de sauver 6 patients supplémentaires de l'errance médicale sur un simple échantillon de 154 personnes !**
-- **Capacité de discrimination (ROC-AUC)** : Avec un score `ROC-AUC ~ 0.82`, les deux modèles montrent une excellente capacité à hiérarchiser les probabilités de risque.
+  **La Forêt Aléatoire permet donc de sauver 6 patients supplémentaires de l'errance médicale sur un simple échantillon de 154 personnes !**
+- **L'amélioration du compromis clinique (F1-score à +10.8 %)** : En progressant nettement de `54.55 %` à `65.35 %`, le F1-score démontre que la Forêt Aléatoire ne se contente pas de maximiser la détection des malades (*Recall*), mais accroît simultanément la fiabilité de ses alertes (*Precision* passant de `60.00 %` à `70.21 %`). L'algorithme offre ainsi un équilibre clinique nettement supérieur en réduisant conjointement les diagnostics omis et les examens de contrôle superflus.
+- **Capacité de discrimination (ROC-AUC)** : Avec un score `ROC-AUC ~ 0.82`, les deux modèles montrent une excellente aptitude globale à hiérarchiser les probabilités de risque, quelle que soit la variation du seuil de décision.
 
 ---
 
