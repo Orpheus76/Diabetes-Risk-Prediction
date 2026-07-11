@@ -121,6 +121,7 @@ jupyter notebook
 diabetes-risk-prediction/
 ├── conftest.py                # Configuration des tests pytest
 ├── data/
+│   ├── processed/             # Données nettoyées, imputées et standardisées
 │   └── raw/diabetes.csv       # Dataset brut (Pima Indians)
 ├── models/                    # Modèles entraînés et exportés (.pkl)
 │   ├── logistic_regression_model.pkl

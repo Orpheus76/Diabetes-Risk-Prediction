@@ -7,10 +7,11 @@ __pycache__/
 # Notebooks
 .ipynb_checkpoints/
 
-# Note : Pour un portfolio GitHub "Plug & Play", nous suivons exceptionnellement les données
-# transformées et modèles légers afin de permettre l'exécution directe par les recruteurs sans relancer le pipeline.
-# data/processed/
-# models/*.pkl
+# Données transformées (régénérables via le code, inutile de les commit)
+data/processed/
+
+# Modèles entraînés volumineux (à adapter selon la taille)
+models/*.pkl
 
 # Système
 .DS_Store
