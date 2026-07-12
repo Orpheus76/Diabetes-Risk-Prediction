@@ -83,7 +83,7 @@ Toutes les métriques ci-dessous se calculent à partir de quatre quantités, ob
 
 ## 🔬 Méthodologie & Pipeline Pédagogique
 
-Le projet est divisé en 4 notebooks séquentiels, conçus pour être compréhensibles par un public non-initié :
+Le projet est divisé en 4 notebooks séquentiels :
 
 1. **`01_eda.ipynb` (Exploration des données)** : Analyse visuelle des distributions, de l'asymétrie des classes (65 % vs 35 %) et des corrélations cliniques.
 2. **`02_preprocessing.ipynb` (Prétraitement & Data Leakage)** : Découpage stratifié Train/Test (80 % / 20 %), imputation par la médiane et standardisation (`StandardScaler`) en veillant à ne jamais exposer les données de test à l'étape d'apprentissage.
