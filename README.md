@@ -96,9 +96,9 @@ Le projet est divisé en 4 notebooks séquentiels, conçus pour être compréhen
 
 Les deux algorithmes ont été évalués sur l'échantillon de test (`X_test`, 154 patientes dont 54 diabétiques) :
 
-| Modèle | Accuracy | Precision | Recall (Sensibilité) ⭐ | F1-score | ROC-AUC | Temps d'entraînement |
+| Modèle | Accuracy | Precision | Recall (Sensibilité)  | F1-score | ROC-AUC | Temps d'entraînement |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Logistic Regression** (Baseline linéaire) | `70.78 %` | `60.00 %` | `50.00 %` | `54.55 %` | `0.8130` | **`~5 ms`** ⚡ |
+| **Logistic Regression** (Baseline linéaire) | `70.78 %` | `60.00 %` | `50.00 %` | `54.55 %` | `0.8130` | **`~5 ms`**  |
 | **Random Forest** (`100 arbres`) | **`77.27 %`** | **`70.21 %`** | **`61.11 %`** | **`65.35 %`** | **`0.8181`** | `~110 ms` |
 
 ### 🔍 Analyse clinique et computationnelle des résultats :
